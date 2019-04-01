@@ -33,7 +33,7 @@ soup = BeautifulSoup(data, 'lxml')
 all_cruises = soup.find_all('a', 'btn btn-primary hidden-xs')
 
 for items in all_cruises:
-    cruise_dict = { 'name' : '', 'days' : '', 'itinerary' : '', 'dates' : ''} # create dict and setup order 
+    cruise_dict = {} # create dict 
     # request each link
     detail_response = requests.get('https://www.lueftner-cruises.com' + items.get('href'), headers=headers)
     detail_data = detail_response.text
